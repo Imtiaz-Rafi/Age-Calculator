@@ -109,12 +109,29 @@ body {
 .right-content {
     border-left: 1px solid #C9C9C9;
     padding-left: 65px;
+    display: none;
+}
+
+.right-content.active {
+    display: block;
 }
 
 .age-title>p {
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
+}
+
+.calender-btn>.disable {
+    display: none;
+}
+
+.gray {
+    color: #959595;
+}
+
+.current.gray {
+    cursor: not-allowed;
 }
 
 .age-lists {}

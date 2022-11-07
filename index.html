@@ -52,6 +52,24 @@
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
                         </select>
                     </div>
                     <div class="date-inputs">
@@ -59,7 +77,7 @@
                     </div>
                     <div class="date-inputs">
                         <button class="calender-inputs calender-btn">
-                            <img src="./images/date.png" alt="calender image">
+                            <img src="./images/calendar.svg" alt="calender image">
                         </button>
                     </div>
                 </div>
@@ -68,7 +86,7 @@
                         <p>Age at the date of</p>
                     </div>
                     <div class="date-inputs">
-                        <select name="current-month" id="current-month" class="calender-inputs">
+                        <select name="current-month" id="current-month" class="calender-inputs current">
                             <option value="January">January</option>
                             <option value="February">February</option>
                             <option value="March">March</option>
@@ -84,7 +102,7 @@
                         </select>
                     </div>
                     <div class="date-inputs">
-                        <select name="current-day" id="birth-day" class="calender-inputs">
+                        <select name="current-day" id="current-day" class="calender-inputs current">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -97,23 +115,42 @@
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
                         </select>
                     </div>
                     <div class="date-inputs">
-                        <input type="number" id="current-year" class="calender-inputs" value="2000">
+                        <input type="number" id="current-year" class="calender-inputs current" value="2000">
                     </div>
                     <div class="date-inputs">
-                        <button class="calender-inputs calender-btn">
-                            <img src="./images/date.png" alt="calender image">
+                        <button class="calender-inputs calender-btn current">
+                            <img class="enable" src="./images/calendar.svg" alt="calender image">
+                            <img class="disable" src="./images/calendar-disabled.svg" alt="calender disable image">
                         </button>
                     </div>
                 </div>
                 <div class="date-check">
-                    <input type="checkbox" name="recent-date" id="recent-date">
+                    <input type="checkbox" name="recent-date" id="recent-date" onclick="recentDate()">
                     <label for="recent-date">Recent date</label>
                 </div>
                 <div class="calculate">
-                    <button class="calc-btn header-text">
+                    <button class="calc-btn header-text" onclick="calculate()">
                         Calculate
                     </button>
                 </div>
@@ -123,13 +160,13 @@
                     <p>Age:</p>
                 </div>
                 <ul class="age-lists">
-                    <li>20 years 7 months 2 days</li>
-                    <li>or 247 months 2 days</li>
-                    <li>or 1074 weeks 1 days</li>
-                    <li>or 7,519 days</li>
-                    <li>or 180,456 hours</li>
-                    <li>or 10,827,360 minutes</li>
-                    <li>or 649,641,600 seconds</li>
+                    <li> <span id="year-val"></span> years <span id="year-month-val"></span> months <span id="year-day-val"></span> days</li>
+                    <li>or <span id="month-val"></span> months <span id="month-day-val"></span> days</li>
+                    <li>or <span id="week-val"></span> weeks <span id="day-week-val"></span> days</li>
+                    <li>or <span id="day-val"></span> days</li>
+                    <li>or <span id="hour-val"></span> hours</li>
+                    <li>or <span id="min-val"></span> minutes</li>
+                    <li>or <span id="sec-val"></span> seconds</li>
                 </ul>
             </div>
         </div>
