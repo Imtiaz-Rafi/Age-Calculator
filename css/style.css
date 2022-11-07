@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: #ffffff;
+}
+
+.container {
+    max-width: 1130px;
+    margin: auto;
+    padding-top: 90px;
+}
+
+.nav-bar {
+    background: #336699;
+    padding: 20px 60px;
+}
+
+.header-text {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.content {
+    display: flex;
+    padding: 30px 60px;
+}
+
+.content {
+    background: #F8F8F8;
+}
+
+.calender-inputs {}
+
+.date-inputs {}
+
+.date-inputs>.calender-inputs {
+    width: 100px;
+    height: 60px;
+    background: #EFEFEF;
+    border: 1px solid #E3E3E3;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.calender-inputs:hover {
+    cursor: pointer;
+}
+
+.date-inputs>.calender-btn {
+    width: 60px;
+}
+
+.date-row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0px;
+}
+
+.date-label {}
+
+.date-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 0px;
+    padding-left: 160px;
+}
+
+.calculate {
+    padding: 15px 0px;
+    padding-left: 160px;
+}
+
+.calc-btn {
+    background: #336699;
+    padding: 20px 70px;
+    border: none;
+    border-radius: 5px;
+}
+
+.left-content {
+    padding-right: 65px;
+}
+
+.right-content {
+    border-left: 1px solid #C9C9C9;
+    padding-left: 65px;
+}
+
+.age-title>p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.age-lists {}
+
+.age-lists>li {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
