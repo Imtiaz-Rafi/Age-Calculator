@@ -141,3 +141,18 @@ body {
     font-size: 20px;
     line-height: 30px;
 }
+
+.error,
+.age-disp.invalid {
+    display: none;
+}
+
+.error.active {
+    display: block;
+}
+
+.error>p {
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(200, 0, 0);
+}

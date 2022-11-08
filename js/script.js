@@ -1,44 +1,69 @@
+let toggleDate = true;
+
 function calculate() {
     let rightContent = document.querySelector(".right-content");
     rightContent.classList.add("active");
 
-    let birthMonth = checkMonth(document.querySelector("#birth-month").value);
-    let birthDay = document.querySelector("#birth-day").value;
-    let birthYear = document.querySelector("#birth-year").value;
+    let birthMonth = parseInt(checkMonth(document.querySelector("#birth-month").value));
+    let birthDay = parseInt(document.querySelector("#birth-day").value);
+    let birthYear = parseInt(document.querySelector("#birth-year").value);
 
-    let currentMonth = checkMonth(document.querySelector("#current-month").value);
-    let currentDay = document.querySelector("#current-day").value;
-    let currentYear = document.querySelector("#current-year").value;
-
-    let birthVal = birthDay * 86400 + birthMonth * 2628288 + birthYear * 31536000;
-    let currentVal = currentDay * 86400 + currentMonth * 2628288 + currentYear * 31536000;
-    
-    if (currentVal < birthVal) {
-        console.log("Wrong Input");
+    let currentMonth, currentDay, currentYear;
+    if (toggleDate) {
+        currentMonth = parseInt(checkMonth(document.querySelector("#current-month").value));
+        currentDay = parseInt(document.querySelector("#current-day").value);
+        currentYear = parseInt(document.querySelector("#current-year").value);
     } else {
-        console.log(birthVal);
-        console.log(currentVal);
-        let sec = currentVal - birthVal;
-        let min = sec / 60;
-        let hour = min / 60;
-        let days = hour / 24;
-        let week = days / 7;
-        let month = days / 30;
-        let year = days / 365;
-        let yearMonth = (days / 365 - year) * 12;
-        document.querySelector("#sec-val").innerHTML = sec;
-        document.querySelector("#min-val").innerHTML = min;
-        document.querySelector("#hour-val").innerHTML = hour;
-        document.querySelector("#day-val").innerHTML = days;
-        document.querySelector("#week-val").innerHTML = week;
-        document.querySelector("#day-week-val").innerHTML = days % 7;
-        document.querySelector("#month-val").innerHTML = month;
-        document.querySelector("#month-day-val").innerHTML = days % 30;
-        document.querySelector("#year-val").innerHTML = year;
-        document.querySelector("#year-month-val").innerHTML = yearMonth;
-        document.querySelector("#year-day-val").innerHTML = Math.round(((days / 365 - year) * 12 - yearMonth) * 30);
+        let dt = new Date();
+        currentMonth = parseInt(dt.getMonth());
+        currentDay = parseInt(dt.getDate());
+        currentYear = parseInt(dt.getFullYear());
+    }
+    let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-        console.log(currentVal - birthVal);
+    if (birthDay > currentDay) {
+        if (currentMonth == 0) {
+            currentMonth = 12;
+            currentYear -= 1;
+        }
+        currentDay = parseInt(currentDay) + month[currentMonth - 1];
+        currentMonth -= 1;
+    }
+    if (birthMonth > currentMonth) {
+        currentMonth += 12;
+        currentYear -= 1;
+    }
+    let res_day = currentDay - birthDay;
+    let res_month = currentMonth - birthMonth;
+    let res_year = currentYear - birthYear;
+    if (res_day < 0 || res_month < 0 || res_year < 0) {
+        document.querySelector(".error").classList.add("active");
+        let x = document.querySelectorAll(".age-disp");
+        x.forEach((e) => {
+            e.classList.add("invalid");
+        });
+    } else {
+        document.querySelector(".error").classList.remove("active");
+        let x = document.querySelectorAll(".age-disp");
+        x.forEach((e) => {
+            e.classList.remove("invalid");
+        });
+
+        let week = parseInt((res_month * 31 + res_year * 365) / 7 + parseInt(res_day / 7));
+        let day = parseInt(res_month * 31 + res_year * 365 + res_day);
+        let hour = parseInt(res_day * 24 + res_month * 730 + res_year * 8760);
+
+        document.querySelector("#sec-val").innerHTML = hour * 60 * 60;
+        document.querySelector("#min-val").innerHTML = hour * 60;
+        document.querySelector("#hour-val").innerHTML = hour;
+        document.querySelector("#day-val").innerHTML = day;
+        document.querySelector("#week-val").innerHTML = week;
+        document.querySelector("#day-week-val").innerHTML = res_day % 7;
+        document.querySelector("#month-val").innerHTML = res_month + res_year * 12;
+        document.querySelector("#month-day-val").innerHTML = res_day;
+        document.querySelector("#year-val").innerHTML = res_year;
+        document.querySelector("#year-month-val").innerHTML = res_month;
+        document.querySelector("#year-day-val").innerHTML = res_day;
     }
 }
 
@@ -58,8 +83,6 @@ function checkMonth(month) {
 
     return month;
 }
-
-let toggleDate = true;
 
 function recentDate() {
     toggleAccess();
